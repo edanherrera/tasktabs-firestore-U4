@@ -23,7 +23,7 @@ export class HomePage {
     });
   }
 
-  public async removeStudent(pos: number) {
+  public async removeStudent(pos: string) {
     const alert = await this.alertController.create({
       header: 'Confirmación',
       subHeader: '¿Estás seguro que deseas eliminar?',
@@ -40,7 +40,7 @@ export class HomePage {
           text: 'Aceptar',
           role: 'confirm',
           handler: () => {
-            this.students = this.studentService.removeStudent(pos);
+            this.studentService.removeStudent(pos);
           }
         }
       ]
@@ -56,6 +56,12 @@ export class HomePage {
     //console.log(this.studentService.getStudentByControlNumber(cn));
     this.router.navigate(['/view-student'], {
       queryParams: { cn: cn },
+    });
+  }
+  public getStudentById(id: string): void {
+    //console.log(this.studentService.getStudentByControlNumber(cn));
+    this.router.navigate(['/view-student'], {
+      queryParams: { id: id },
     });
   }
 

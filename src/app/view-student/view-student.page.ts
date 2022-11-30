@@ -16,13 +16,28 @@ export class ViewStudentPage implements OnInit {
   public student: Student;
 
   constructor(private studentService: StudentService, private activatedRoute: ActivatedRoute) {
-    
+    this.student = 
+      {
+        controlnumber: '',
+        age: 0,
+        career: '',
+        curp: '',
+        email: '',
+        name: '',
+        nip: 0,
+        photo: ''
+      }
   }
 
   ngOnInit() {
     // let cn;
     this.activatedRoute.queryParams.subscribe((params) => {
-      this.student = this.studentService.getStudentByControlNumber(params.cn);
+      // this.student = this.studentService.getStudentByControlNumber(params.cn);
+      this.studentService.getStudentById(params.id).subscribe(item =>{
+        console.log(item);
+        this.student = item as Student;
+        
+      });
     });
     // console.log(cn);
   }
