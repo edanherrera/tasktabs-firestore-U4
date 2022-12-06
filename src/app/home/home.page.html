@@ -27,18 +27,19 @@
                             <ion-icon name="trash-outline"></ion-icon>
                         </ion-item-option>
                     </ion-item-options>
-                    <!-- <ion-item-options side="start" (ionSwipe)="getStudentByControlNumber(item.controlnumber)">
-                        <ion-item-option expandable color="primary">
-                            <ion-icon name="person-circle-outline"></ion-icon>
+                    <ion-item-options side="start" (ionSwipe)="goUpdateStudent(item.id)">
+                        <ion-item-option expandable color="warning">
+                            <ion-icon name="pencil-outline"></ion-icon>
                         </ion-item-option>
-                    </ion-item-options> -->
+                    </ion-item-options>
                 </ion-item-sliding>
 
             </ion-list>
         </ion-col>
 
     </ion-row>
-    <ion-fab slot="fixed" vertical="top" horizontal="end" [edge]="true">
+    <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+        <!--  [edge]="true" -->
         <ion-fab-button (click)="goToNewStudent()">
             <ion-icon name="add"></ion-icon>
         </ion-fab-button>

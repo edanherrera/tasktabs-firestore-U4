@@ -59,7 +59,6 @@ export class StudentService {
           return {id,...data};
         });
       }));
-
   }
 
   public removeStudent(pos: string){
@@ -86,4 +85,7 @@ export class StudentService {
     return this.firestore.collection('students').add(student);
   }
 
+  public updateStudent(student : Student, id : string){
+    return this.firestore.collection('students').doc(id).update(student);
+  }
 }
